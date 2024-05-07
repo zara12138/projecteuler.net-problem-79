@@ -39,3 +39,24 @@ It contains
 - an ADD button for building up your list of login attempts
 - an RESET button for clearing up the list of login attempts
 - text fields for your inputs and possible shortest passcode calculated based on your inputs
+
+## Code
+
+To dig into the core function, you can start from taking a look at method `getShortestPassword` in src/pages/Home/util.ts
+
+To understand the UI components, you can take a look st src/pages/Home/Home.tsx
+
+This is the file structure
+
+```
+src
+ ┣ pages
+ ┃ ┗ Home
+ ┃ ┃ ┣ Home.tsx
+ ┃ ┃ ┣ Home.module.css
+ ┃ ┃ ┣ getServerSideProps.ts
+ ┃ ┃ ┣ validation.ts
+ ┃ ┃ ┣ constants.ts
+ ┃ ┃ ┗ util.ts
+ ┃ ┗ index.ts
+```
