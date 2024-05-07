@@ -1,17 +1,3 @@
-import fs from "fs";
-
-export const readFileIntoArray = (path: string): Promise<string[]> => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path, "utf-8", (err, data) => {
-      if (err) {
-        reject(err);
-      }
-      // split data by new line and filter out empty lines
-      resolve(data.split("\n").filter((line) => line.length > 0));
-    });
-  });
-};
-
 // insert items into an array at a specific index
 const insert = (array: string[], index: number, ...items: string[]) => {
   array.splice(index, 0, ...items);
@@ -29,6 +15,7 @@ export const getShortestPassword = (data: string[]) => {
   const shortestPassword: string[] = [];
 
   // remove duplicates
+  // @ts-ignore
   const filteredData = [...new Set(data)];
   filteredData.map((item) => {
     const [first, second, third] = item.split("");
@@ -102,9 +89,3 @@ export const getShortestPassword = (data: string[]) => {
 
   return shortestPassword.join("");
 };
-
-export const getResult = async () => {
-  const array: string[] = await readFileIntoArray("src/resources/0079_keylog.txt");
-
-  return getShortestPassword(array);
-}
